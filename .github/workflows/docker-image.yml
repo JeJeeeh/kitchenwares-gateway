@@ -35,9 +35,9 @@ jobs:
         env:
           APP_UID: 1000
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/kitchenwares-gateaway:v1 ./KitchenwaresGateway
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/kitchenwares-gateway:latest ./KitchenwaresGateway
           docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.ACCESS_TOKEN }}
-          docker push ${{ secrets.DOCKER_USERNAME }}/kitchenwares-gateway:v1
+          docker push ${{ secrets.DOCKER_USERNAME }}/kitchenwares-gateway:latest
 
       - name: Pull latest images
         run: docker-compose -f docker-compose.yml pull
