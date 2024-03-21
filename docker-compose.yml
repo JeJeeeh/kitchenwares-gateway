@@ -15,8 +15,8 @@
     container_name: products-service
     image: jasonjonathan69/kitchenwares-products
     build:
-      context: "./Kitchenwares Products"
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: "Kitchenwares Products/Dockerfile"
     depends_on: 
       - products-mongo
     networks: 
