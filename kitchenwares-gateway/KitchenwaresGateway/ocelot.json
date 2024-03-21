@@ -1,0 +1,30 @@
+﻿{
+  "Routes": [
+    {
+      "UpstreamPathTemplate": "/api/products",
+      "UpstreamHttpMethod": ["Get", "Post"],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "products-service",
+          "Port": 8080
+        }
+      ],
+      "DownstreamPathTemplate": "/api/products"
+    }, {
+      "UpstreamPathTemplate": "/api/products/{id}",
+      "UpstreamHttpMethod": ["Get", "Put", "Delete"],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "products-service",
+          "Port": 8080
+        }
+      ],
+      "DownstreamPathTemplate": "/api/products/{id}"
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:800"
+  }
+}
