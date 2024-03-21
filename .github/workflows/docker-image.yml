@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Automated Deployment
 
 on:
   push:
@@ -7,12 +7,40 @@ on:
     branches: [ "main" ]
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '8.0'
+
+      - name: Install dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --configuration Release
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build and Push User Service Docker image
+        env:
+          APP_UID: 1000
+        run: |
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/kitchenwares-gateaway:v1 ./KitchenwaresGateway
+          docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.ACCESS_TOKEN }}
+          docker push ${{ secrets.DOCKER_USERNAME }}/kitchenwares-gateway:v1
+
+      - name: Pull latest images
+        run: docker-compose -f docker-compose.yml pull
+
+      - name: Deploy with Docker Compose
+        run: docker-compose -f docker-compose.yml up -d
