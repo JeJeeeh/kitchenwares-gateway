@@ -1,0 +1,40 @@
+﻿services:
+  products-mongo:
+    image: mongo:latest
+    restart: unless-stopped
+    container_name: products-mongo
+    ports: 
+      - "27020:27020"
+    command: ["mongod", "--port", "27020"]
+    volumes:
+      - mongo-products-data:/data/db
+    networks:
+      - kitchenwares-network
+  
+  products-service:
+    container_name: products-service
+    image: jasonjonathan69/kitchenwares-products
+    build:
+      context: "./Kitchenwares Products"
+      dockerfile: Dockerfile
+    depends_on: 
+      - products-mongo
+    networks: 
+      - kitchenwares-network
+  
+  kitchenwaresgateway:
+    image: kitchenwaresgateway
+    build:
+      context: ./KitchenwaresGateway
+      dockerfile: Dockerfile
+    ports:
+      - "8001:8080"
+    networks: 
+      - kitchenwares-network
+
+networks:
+  kitchenwares-network:
+    driver: bridge
+    
+volumes: 
+  mongo-products-data:
