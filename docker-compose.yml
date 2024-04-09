@@ -22,8 +22,31 @@
     networks: 
       - kitchenwares-network
   
+  images-mongo:
+    image: mongo:latest
+    restart: unless-stopped
+    container_name: images-mongo
+    ports:
+      - "27021:27021"
+    command: ["mongod", "--port", "27021"]
+    volumes:
+      - mongo-images-data:/data/db
+    networks: 
+      - kitchenwares-network
+  
+  images-service:
+    container_name: images-service
+    image: jasonjonathan69/kitchenwares-images
+    build:
+      context: .
+      dockerfile: "KitchenwaresImages/Dockerfile"
+    depends_on: 
+      - images-mongo
+    networks: 
+      - kitchenwares-network
+  
   kitchenwaresgateway:
-    image: kitchenwaresgateway
+    image: jasonjonathan69/kitchenwares-gateway
     build:
       context: ./KitchenwaresGateway
       dockerfile: Dockerfile
@@ -38,3 +61,4 @@ networks:
     
 volumes: 
   mongo-products-data:
+  mongo-images-data:
