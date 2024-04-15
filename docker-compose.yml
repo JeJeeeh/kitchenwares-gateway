@@ -49,6 +49,17 @@
     ports:
       - "8003:8080"
   
+  auth-service:
+    container_name: auth-service
+    image: jasonjonathan69/kitchenwares-auth
+    build:
+      context: .
+      dockerfile: "KitchenwaresAuth/Dockerfile"
+    networks: 
+      - kitchenwares-network
+    ports:
+      - "8004:8080"
+  
   kitchenwares-gateway:
     container_name: kitchenwares-gateway
     image: jasonjonathan69/kitchenwares-gateway

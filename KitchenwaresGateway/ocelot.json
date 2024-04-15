@@ -55,6 +55,17 @@
         }
       ],
       "DownstreamPathTemplate": "/api/images/bytes/{imageName}"
+    }, {
+      "UpstreamPathTemplate": "/weatherforecast",
+      "UpstreamHttpMethod": ["Get"],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "auth-service",
+          "Port": 8080
+        }
+      ],
+      "DownstreamPathTemplate": "/weatherforecast"
     }
   ],
   "GlobalConfiguration": {
