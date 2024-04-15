@@ -1,16 +1,16 @@
 ﻿{
   "Routes": [
     {
-      "UpstreamPathTemplate": "/api/products",
+      "UpstreamPathTemplate": "/weatherforecast",
       "UpstreamHttpMethod": ["Get", "Post"],
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "products-service",
+          "Host": "auth-service",
           "Port": 8080
         }
       ],
-      "DownstreamPathTemplate": "/api/products"
+      "DownstreamPathTemplate": "/weatherforecast"
     },{
       "UpstreamPathTemplate": "/api/products/{id}",
       "UpstreamHttpMethod": ["Get", "Put", "Delete"],
@@ -55,17 +55,6 @@
         }
       ],
       "DownstreamPathTemplate": "/api/images/bytes/{imageName}"
-    }, {
-      "UpstreamPathTemplate": "/weatherforecast",
-      "UpstreamHttpMethod": ["Get"],
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "auth-service",
-          "Port": 8080
-        }
-      ],
-      "DownstreamPathTemplate": "/weatherforecast"
     }
   ],
   "GlobalConfiguration": {
