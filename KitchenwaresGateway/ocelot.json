@@ -29,7 +29,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "images-service",
-          "Port": 8082
+          "Port": 8080
         }
       ],
       "DownstreamPathTemplate": "/api/images/{productsId}"
@@ -40,7 +40,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "images-service",
-          "Port": 8082
+          "Port": 8080
         }
       ],
       "DownstreamPathTemplate": "/api/images/{productsId}" 
@@ -51,7 +51,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "images-service",
-          "Port": 8082
+          "Port": 8080
         }
       ],
       "DownstreamPathTemplate": "/api/images/bytes/{imageName}"

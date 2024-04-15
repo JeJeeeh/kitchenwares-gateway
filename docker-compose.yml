@@ -11,6 +11,18 @@
     networks:
       - kitchenwares-network
   
+  images-mongo:
+    image: mongo:latest
+    restart: unless-stopped
+    container_name: images-mongo
+    ports:
+      - "27021:27021"
+    command: [ "mongod", "--port", "27021" ]
+    volumes:
+      - mongo-images-data:/data/db
+    networks:
+      - kitchenwares-network
+  
   products-service:
     container_name: products-service
     image: jasonjonathan69/kitchenwares-products
@@ -19,18 +31,6 @@
       dockerfile: "Kitchenwares Products/Dockerfile"
     depends_on: 
       - products-mongo
-    networks: 
-      - kitchenwares-network
-  
-  images-mongo:
-    image: mongo:latest
-    restart: unless-stopped
-    container_name: images-mongo
-    ports:
-      - "27021:27021"
-    command: ["mongod", "--port", "27021"]
-    volumes:
-      - mongo-images-data:/data/db
     networks: 
       - kitchenwares-network
   
