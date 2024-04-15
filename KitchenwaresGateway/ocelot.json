@@ -43,7 +43,7 @@
           "Port": 8080
         }
       ],
-      "DownstreamPathTemplate": "/api/images/{productsId}" 
+      "DownstreamPathTemplate": "/api/images/{productId}" 
     }, {
       "UpstreamPathTemplate": "/api/images/bytes/{imageName}",
       "UpstreamHttpMethod": ["Get"],
