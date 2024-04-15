@@ -33,6 +33,8 @@
       - products-mongo
     networks: 
       - kitchenwares-network
+    ports:
+      - "8002:8080"
   
   images-service:
     container_name: images-service
@@ -44,6 +46,8 @@
       - images-mongo
     networks: 
       - kitchenwares-network
+    ports:
+      - "8003:8080"
   
   kitchenwaresgateway:
     image: jasonjonathan69/kitchenwares-gateway
