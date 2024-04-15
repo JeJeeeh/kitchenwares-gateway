@@ -40,7 +40,7 @@
     container_name: images-service
     image: jasonjonathan69/kitchenwares-images:latest
     build:
-      context: ./KitchenwaresImages
+      context: .
       dockerfile: "KitchenwaresImages/Dockerfile"
     depends_on: 
       - images-mongo
@@ -53,7 +53,7 @@
     container_name: auth-service
     image: jasonjonathan69/kitchenwares-auth:latest
     build:
-      context: ./KitchenwaresAuth
+      context: .
       dockerfile: "KitchenwaresAuth/Dockerfile"
     networks: 
       - kitchenwares-network
@@ -64,8 +64,8 @@
     container_name: kitchenwares-gateway
     image: jasonjonathan69/kitchenwares-gateway:latest
     build:
-      context: ./KitchenwaresGateway
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: "KitchenwaresGateway/Dockerfile"
     ports:
       - "8001:8080"
     networks: 
