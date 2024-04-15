@@ -24,7 +24,7 @@
       "DownstreamPathTemplate": "/api/products/{id}"
     },{
       "UpstreamPathTemplate": "/api/images",
-      "UpstreamHttpMethod": ["Get"],
+      "UpstreamHttpMethod": ["Get", "Post"],
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
