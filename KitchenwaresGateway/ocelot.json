@@ -1,74 +1,74 @@
-﻿//{
-//  "Routes": [
-//    {
-//      "UpstreamPathTemplate": "/api/products",
-//      "UpstreamHttpMethod": ["Get", "Post"],
-//      "DownstreamScheme": "http",
-//      "DownstreamHostAndPorts": [
-//        {
-//          "Host": "products-service",
-//          "Port": 8080
-//        }
-//      ],
-//      "DownstreamPathTemplate": "/api/products"
-//    },{
-//      "UpstreamPathTemplate": "/api/products/{id}",
-//      "UpstreamHttpMethod": ["Get", "Put", "Delete"],
-//      "DownstreamScheme": "http",
-//      "DownstreamHostAndPorts": [
-//        {
-//          "Host": "products-service",
-//          "Port": 8080
-//        }
-//      ],
-//      "DownstreamPathTemplate": "/api/products/{id}"
-//    },{
-//      "UpstreamPathTemplate": "/api/images",
-//      "UpstreamHttpMethod": ["Get", "Post"],
-//      "DownstreamScheme": "http",
-//      "DownstreamHostAndPorts": [
-//        {
-//          "Host": "images-service",
-//          "Port": 8080
-//        }
-//      ],
-//      "DownstreamPathTemplate": "/api/images"
-//    },{
-//      "UpstreamPathTemplate": "/api/images/{productId}",
-//      "UpstreamHttpMethod": ["Get", "Post"],
-//      "DownstreamScheme": "http",
-//      "DownstreamHostAndPorts": [
-//        {
-//          "Host": "images-service",
-//          "Port": 8080
-//        }
-//      ],
-//      "DownstreamPathTemplate": "/api/images/{productId}"
-//    },{
-//      "UpstreamPathTemplate": "/api/images/bytes/{imageName}",
-//      "UpstreamHttpMethod": ["Get"],
-//      "DownstreamScheme": "http",
-//      "DownstreamHostAndPorts": [
-//        {
-//          "Host": "images-service",
-//          "Port": 8080
-//        }
-//      ],
-//      "DownstreamPathTemplate": "/api/images/bytes/{imageName}"
-//    },{
-//      "UpstreamPathTemplate": "/weatherforecast",
-//      "UpstreamHttpMethod": ["Get", "Post"],
-//      "DownstreamScheme": "http",
-//      "DownstreamHostAndPorts": [
-//        {
-//          "Host": "auth-service",
-//          "Port": 8080
-//        }
-//      ],
-//      "DownstreamPathTemplate": "/weatherforecast"
-//    }
-//  ],
-//  "GlobalConfiguration": {
-//    "BaseUrl": "http://localhost:800"
-//  }
-//}
+﻿{
+  "Routes": [
+    {
+      "UpstreamPathTemplate": "/api/products",
+      "UpstreamHttpMethod": ["Get", "Post"],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "products-service",
+          "Port": 8080
+        }
+      ],
+      "DownstreamPathTemplate": "/api/products"
+    },{
+      "UpstreamPathTemplate": "/api/products/{id}",
+      "UpstreamHttpMethod": ["Get", "Put", "Delete"],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "products-service",
+          "Port": 8080
+        }
+      ],
+      "DownstreamPathTemplate": "/api/products/{id}"
+    },{
+      "UpstreamPathTemplate": "/api/images",
+      "UpstreamHttpMethod": ["Get", "Post"],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "images-service",
+          "Port": 8080
+        }
+      ],
+      "DownstreamPathTemplate": "/api/images"
+    },{
+      "UpstreamPathTemplate": "/api/images/{productId}",
+      "UpstreamHttpMethod": ["Get", "Post"],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "images-service",
+          "Port": 8080
+        }
+      ],
+      "DownstreamPathTemplate": "/api/images/{productId}"
+    },{
+      "UpstreamPathTemplate": "/api/images/bytes/{imageName}",
+      "UpstreamHttpMethod": ["Get"],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "images-service",
+          "Port": 8080
+        }
+      ],
+      "DownstreamPathTemplate": "/api/images/bytes/{imageName}"
+    },{
+      "UpstreamPathTemplate": "/weatherforecast",
+      "UpstreamHttpMethod": ["Get", "Post"],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "auth-service",
+          "Port": 8080
+        }
+      ],
+      "DownstreamPathTemplate": "/weatherforecast"
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:800"
+  }
+}
