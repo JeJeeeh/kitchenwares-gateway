@@ -27,7 +27,7 @@
     container_name: products-service
     image: jasonjonathan69/kitchenwares-products:latest
     build:
-      context: .
+      context: "./Kitchenwares Products"
       dockerfile: "Kitchenwares Products/Dockerfile"
     depends_on: 
       - products-mongo
@@ -40,7 +40,7 @@
     container_name: images-service
     image: jasonjonathan69/kitchenwares-images:latest
     build:
-      context: .
+      context: ./KitchenwaresImages
       dockerfile: "KitchenwaresImages/Dockerfile"
     depends_on: 
       - images-mongo
@@ -53,7 +53,7 @@
     container_name: auth-service
     image: jasonjonathan69/kitchenwares-auth:latest
     build:
-      context: .
+      context: ./KitchenwaresAuth
       dockerfile: "KitchenwaresAuth/Dockerfile"
     networks: 
       - kitchenwares-network
