@@ -23,7 +23,7 @@
       ],
       "DownstreamPathTemplate": "/api/products/{id}"
     },{
-      "UpstreamPathTemplate": "/api/images",
+      "UpstreamPathTemplate": "/api/Images",
       "UpstreamHttpMethod": ["Get"],
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
@@ -32,7 +32,7 @@
           "Port": 8080
         }
       ],
-      "DownstreamPathTemplate": "/api/images"
+      "DownstreamPathTemplate": "/api/Images"
     }, {
       "UpstreamPathTemplate": "/api/images/{productId}",
       "UpstreamHttpMethod": ["Get", "Post"],
