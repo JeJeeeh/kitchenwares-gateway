@@ -25,7 +25,7 @@
   
   products-service:
     container_name: products-service
-    image: jasonjonathan69/kitchenwares-products
+    image: jasonjonathan69/kitchenwares-products:latest
     build:
       context: .
       dockerfile: "Kitchenwares Products/Dockerfile"
@@ -38,7 +38,7 @@
   
   images-service:
     container_name: images-service
-    image: jasonjonathan69/kitchenwares-images
+    image: jasonjonathan69/kitchenwares-images:latest
     build:
       context: .
       dockerfile: "KitchenwaresImages/Dockerfile"
@@ -51,7 +51,7 @@
   
   auth-service:
     container_name: auth-service
-    image: jasonjonathan69/kitchenwares-auth
+    image: jasonjonathan69/kitchenwares-auth:latest
     build:
       context: .
       dockerfile: "KitchenwaresAuth/Dockerfile"
@@ -62,7 +62,7 @@
   
   kitchenwares-gateway:
     container_name: kitchenwares-gateway
-    image: jasonjonathan69/kitchenwares-gateway
+    image: jasonjonathan69/kitchenwares-gateway:latest
     build:
       context: ./KitchenwaresGateway
       dockerfile: Dockerfile
