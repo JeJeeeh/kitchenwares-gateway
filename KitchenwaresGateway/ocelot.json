@@ -11,7 +11,7 @@
         }
       ],
       "DownstreamPathTemplate": "/api/products"
-    }, {
+    },{
       "UpstreamPathTemplate": "/api/products/{id}",
       "UpstreamHttpMethod": ["Get", "Put", "Delete"],
       "DownstreamScheme": "http",
@@ -33,7 +33,7 @@
         }
       ],
       "DownstreamPathTemplate": "/api/images"
-    }, {
+    },{
       "UpstreamPathTemplate": "/api/images/{productId}",
       "UpstreamHttpMethod": ["Get", "Post"],
       "DownstreamScheme": "http",
@@ -44,7 +44,7 @@
         }
       ],
       "DownstreamPathTemplate": "/api/images/{productId}"
-    }, {
+    },{
       "UpstreamPathTemplate": "/api/images/bytes/{imageName}",
       "UpstreamHttpMethod": ["Get"],
       "DownstreamScheme": "http",

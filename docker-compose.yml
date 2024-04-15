@@ -49,7 +49,8 @@
     ports:
       - "8003:8080"
   
-  kitchenwaresgateway:
+  kitchenwares-gateway:
+    container_name: kitchenwares-gateway
     image: jasonjonathan69/kitchenwares-gateway
     build:
       context: ./KitchenwaresGateway
