@@ -22,6 +22,18 @@
       - mongo-images-data:/data/db
     networks:
       - kitchenwares-network
+        
+  auth-mongo:
+    image: mongo:latest
+    restart: unless-stopped
+    container_name: auth-mongo
+    ports:
+      - "27022:27022"
+    command: [ "mongod", "--port", "27022" ]
+    volumes:
+      - mongo-auth-data:/data/db
+    networks:
+      - kitchenwares-network
   
   products-service:
     container_name: products-service
@@ -35,6 +47,13 @@
       - kitchenwares-network
     ports:
       - "8002:8080"
+    environment:
+      - Jwt:Issuer=http://localhost:8004
+      - Jwt:Audience=http://localhost:8001
+      - Jwt:SecretKey=kjAFhnm123AhqweiouKJSDU4187LKJNZXCB
+      - Db:ConnectionString=mongodb://products-mongo:27020
+      - Db:CollectionName=kitchenwares
+      - Db:DatabaseName=products
   
   images-service:
     container_name: images-service
@@ -59,6 +78,14 @@
       - kitchenwares-network
     ports:
       - "8004:8080"
+    environment:
+      - Jwt:Issuer=http://localhost:8004
+      - Jwt:Audience=http://localhost:8001
+      - Jwt:SecretKey=kjAFhnm123AhqweiouKJSDU4187LKJNZXCB
+      - Jwt:ExpirationInMinutes=60
+      - Db:ConnectionString=mongodb://auth-mongo:27022
+      - Db:CollectionName=kitchenwares
+      - Db:DatabaseName=auth
   
   kitchenwares-gateway:
     container_name: kitchenwares-gateway
@@ -78,3 +105,4 @@ networks:
 volumes: 
   mongo-products-data:
   mongo-images-data:
+  mongo-auth-data:

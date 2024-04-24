@@ -56,8 +56,8 @@
       ],
       "DownstreamPathTemplate": "/api/images/bytes/{imageName}"
     },{
-      "UpstreamPathTemplate": "/weatherforecast",
-      "UpstreamHttpMethod": ["Get", "Post"],
+      "UpstreamPathTemplate": "/api/auth/login",
+      "UpstreamHttpMethod": ["Post"],
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -65,7 +65,29 @@
           "Port": 8080
         }
       ],
-      "DownstreamPathTemplate": "/weatherforecast"
+      "DownstreamPathTemplate": "/api/auth/login"
+    },{
+      "UpstreamPathTemplate": "/api/auth/register/buyer",
+      "UpstreamHttpMethod": ["Post"],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "auth-service",
+          "Port": 8080
+        }
+      ],
+      "DownstreamPathTemplate": "/api/auth/register/buyer"
+    },{
+      "UpstreamPathTemplate": "/api/auth/register/seller",
+      "UpstreamHttpMethod": ["Post"],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "auth-service",
+          "Port": 8080
+        }
+      ],
+      "DownstreamPathTemplate": "/api/auth/register/seller"
     }
   ],
   "GlobalConfiguration": {
