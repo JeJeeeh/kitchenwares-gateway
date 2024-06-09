@@ -88,6 +88,17 @@
         }
       ],
       "DownstreamPathTemplate": "/api/auth/register/seller"
+    },{
+      "UpstreamPathTemplate": "/api/users",
+      "UpstreamHttpMethod": ["Put", "Delete"],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "users-service",
+          "Port": 8080
+        }
+      ],
+      "DownstreamPathTemplate": "/api/users"
     }
   ],
   "GlobalConfiguration": {
