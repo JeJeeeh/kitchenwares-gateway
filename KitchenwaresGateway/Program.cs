@@ -1,5 +1,6 @@
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
+using Prometheus;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Configuration.SetBasePath(builder.Environment.ContentRootPath)
@@ -15,6 +16,12 @@ app.UseCors(builder => builder
     .AllowAnyMethod()
     .AllowAnyHeader()
 );
+
+app.UseMetricServer();
+app.UseHttpMetrics(options=>
+{
+    options.AddCustomLabel("host", context => context.Request.Host.Host);
+});
 
 await app.UseOcelot();
 app.Run();
